@@ -85,7 +85,7 @@ class VenueForm(Form):
         'address', validators=[DataRequired()]
     )
     phone = StringField(
-        'phone'
+        'phone', validators=[DataRequired(), Regexp("^[0-9]{11}$", message="Phone Field only aacept digit")]
     )
     image_link = StringField(
         'image_link'
@@ -195,7 +195,7 @@ class ArtistForm(Form):
     )
     phone = StringField(
         # TODO implement validation logic for state
-        'phone', validators=[DataRequired(), Regexp("^[0-9]{11}$", message="Phone Field only aacept deigit")]
+        'phone', validators=[DataRequired(), Regexp("^[0-9]{11}$", message="Phone Field only aacept digit")]
     )
 
     image_link = StringField(
